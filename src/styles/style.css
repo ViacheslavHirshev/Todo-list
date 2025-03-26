@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Merienda:wght@300..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --main-clr: #252f50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1rem;
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template: 100% / 2fr 8fr;
+}
+
+aside {
+    background-color: var(--main-clr);
+    color: white;
+    display: grid;
+    grid-template: 10% 40% 50% / 100%;
+}
+
+.title {
+    align-self: center;
+    justify-self: center;
+}
+
+.title>h1 {
+    font-size: 1.5rem;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
