@@ -1,0 +1,40 @@
+.task {
+    border-bottom: 1px solid var(--main-clr);
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    width: 600px;
+    /* justify-content: space-between; */
+}
+
+.task-status-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.task-status-label {
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.task-due-date {
+    margin-left: auto;
+}
+
+.task-priority-high {
+    color: red;
+    font-weight: bold;
+}
+
+.task-priority-medium {
+    color: yellow;
+    font-weight: bold;
+}
+
+.task-priority-low {
+    color: green;
+    font-weight: bold;
+}

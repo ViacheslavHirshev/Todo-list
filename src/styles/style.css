@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Merienda:wght@300..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("./task.css");
 
 :root {
     --main-clr: #252f50;
+    --second-clr: red;
+    --main-font: "Roboto"
 }
 
 * {
@@ -9,7 +12,7 @@
     padding: 0;
     line-height: 1rem;
     font-size: 1rem;
-    font-family: "Roboto", sans-serif;
+    font-family: var(--main-font), sans-serif;
     box-sizing: border-box;
 }
 
@@ -29,9 +32,6 @@ aside {
 .title {
     align-self: center;
     justify-self: center;
-}
-
-.title>h1 {
     font-size: 1.5rem;
 }
 
@@ -39,4 +39,12 @@ aside {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-left: 10px;
 }
