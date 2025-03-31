@@ -1,52 +1,31 @@
-import { ProjectState } from "../projectState";
 import { Task } from "../Entities/task";
+import { ProjectState } from "../projectState";
 
 export class TaskInputForm
 {
-    private static _inputForm: TaskInputForm;
     private _dialogElement: HTMLDialogElement;
     private _formElement: HTMLFormElement;
     private _openFormBtn: HTMLButtonElement;
     private _closeFormBtn: HTMLButtonElement;
-    //private _submitFormBtn: HTMLButtonElement;
 
-    private projectState = ProjectState.getInstance();
-
-    private constructor()
+    public constructor()
     {
         this._dialogElement = document.querySelector("#task-dialog") as HTMLDialogElement;
         this._formElement = this._dialogElement.querySelector("#task-input-form") as HTMLFormElement;
         this._openFormBtn = document.querySelector("#new-task-btn") as HTMLButtonElement;
         this._closeFormBtn = this._dialogElement.querySelector(".cancel-btn") as HTMLButtonElement;
-        //this._submitFormBtn = this._dialogElement.querySelector(".submit-btn") as HTMLButtonElement;
         this.configure();
-    }
-
-    public static getInstance(): TaskInputForm
-    {
-        if (TaskInputForm._inputForm)
-        {
-            return TaskInputForm._inputForm;
-        }
-
-        TaskInputForm._inputForm = new TaskInputForm()
-        return TaskInputForm._inputForm;
     }
 
     private showForm(): void
     {
-        if (TaskInputForm._inputForm)
-        {
-            this._dialogElement.showModal();
-        }
-        else
-        {
-            console.error("Task form hasn't been created");
-        }
+        this.clearForm();
+        this._dialogElement.showModal();
     }
 
     private closeForm(): void
     {
+        this.clearForm();
         this._dialogElement?.close();
     }
 
@@ -57,7 +36,7 @@ export class TaskInputForm
         this._formElement.addEventListener("submit", this.submitFormHandler.bind(this));
     }
 
-    private submitFormHandler(event: SubmitEvent)
+    private submitFormHandler(event: SubmitEvent): void
     {
         event.preventDefault();
 
@@ -67,9 +46,8 @@ export class TaskInputForm
 
         if (priority === "high" || priority === "medium" || priority === "low")
         {
-            this.projectState.addTask(new Task(title, new Date(dueDate), priority));
-
-            this.clearForm();
+            const newTask = new Task(title, new Date(dueDate), priority);
+            ProjectState.getInstance().addTask(newTask);
             this.closeForm();
         }
     }

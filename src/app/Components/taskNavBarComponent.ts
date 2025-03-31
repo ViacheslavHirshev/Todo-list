@@ -1,13 +1,12 @@
+
 class TaskNavBarComponent
 {
-    private static _taskNavBar: TaskNavBarComponent;
-
     private _allTasks: HTMLLIElement;
     private _todayTasks: HTMLLIElement;
     private _completedTasks: HTMLLIElement;
     private _missedTasks: HTMLLIElement;
 
-    private constructor()
+    public constructor()
     {
         this._allTasks = document.querySelector("#all-tasks") as HTMLLIElement;
         this._todayTasks = document.querySelector("#today-tasks") as HTMLLIElement;
@@ -15,16 +14,28 @@ class TaskNavBarComponent
         this._missedTasks = document.querySelector("#missed-tasks") as HTMLLIElement;
     }
 
-    public getInstance()
+    private configure()
     {
-        if (TaskNavBarComponent._taskNavBar)
-        {
-            return TaskNavBarComponent._taskNavBar;
-        }
-
-        TaskNavBarComponent._taskNavBar = new TaskNavBarComponent();
-        return TaskNavBarComponent._taskNavBar;
+        this._allTasks.addEventListener("onclick", this.displayAllTasks.bind(this));
     }
 
+    private displayAllTasks()
+    {
 
+    }
+
+    private displayTodayTasks()
+    {
+
+    }
+
+    private displayCompletedTasks()
+    {
+
+    }
+
+    private displayMissedTasks()
+    {
+
+    }
 }

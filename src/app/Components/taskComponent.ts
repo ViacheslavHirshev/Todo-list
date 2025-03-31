@@ -14,11 +14,9 @@ export class TaskComponent implements IRenderable
         this._targetElement = targetElement;
         this._currentElement = this._sourceElement?.content.cloneNode(true) as HTMLDivElement;
         this._task = task;
-
-        this.renderContent();
     }
 
-    renderContent(): void
+    public renderContent(): void
     {
         const taskTitle = this._currentElement.querySelector(".task-title") as HTMLSpanElement;
         taskTitle.innerText = this._task.title;
