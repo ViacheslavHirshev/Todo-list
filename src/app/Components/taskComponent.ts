@@ -3,10 +3,10 @@ import { Task } from "../Entities/task";
 
 export class TaskComponent implements IRenderable
 {
-    _sourceElement: HTMLTemplateElement;
-    _currentElement: HTMLDivElement;
-    _targetElement: HTMLElement;
-    _task: Task;
+    private _sourceElement: HTMLTemplateElement;
+    private _currentElement: HTMLDivElement;
+    private _targetElement: HTMLElement;
+    private _task: Task;
 
     constructor(sourceElement: HTMLTemplateElement, targetElement: HTMLElement, task: Task)
     {

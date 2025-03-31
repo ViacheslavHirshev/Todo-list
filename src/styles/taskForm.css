@@ -1,0 +1,21 @@
+#task-input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 5px;
+    padding: 5px;
+}
+
+.form-btns {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
