@@ -61,4 +61,9 @@ export class ProjectState
             }
         }
     }
+
+    public get tasks()
+    {
+        return this._tasks;
+    }
 }

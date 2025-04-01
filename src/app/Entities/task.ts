@@ -6,6 +6,7 @@ export class Task
     private _description?: string;
     private _dueDate: Date;
     private _priority: PriorityType;
+    public _isCompleted: boolean;
 
     constructor(title: string, dueDate: Date, priority: PriorityType, description?: string)
     {
@@ -13,6 +14,7 @@ export class Task
         this._dueDate = dueDate;
         this._description = description;
         this._priority = priority;
+        this._isCompleted = false;
     }
 
     public get title()
