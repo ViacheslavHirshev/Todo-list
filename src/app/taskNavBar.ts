@@ -1,6 +1,6 @@
-import { ProjectState } from "../projectState";
+import { ProjectState } from "./projectState";
 
-export class TaskNavBarComponent
+export class TaskNavBar
 {
     private _allTasks: HTMLLIElement;
     private _todayTasks: HTMLLIElement;

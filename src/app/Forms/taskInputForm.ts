@@ -10,7 +10,7 @@ export class TaskInputForm
 
     public constructor()
     {
-        this._dialogElement = document.querySelector("#task-dialog") as HTMLDialogElement;
+        this._dialogElement = document.querySelector("#task-input-dialog") as HTMLDialogElement;
         this._formElement = this._dialogElement.querySelector("#task-input-form") as HTMLFormElement;
         this._openFormBtn = document.querySelector("#new-task-btn") as HTMLButtonElement;
         this._closeFormBtn = this._dialogElement.querySelector(".cancel-btn") as HTMLButtonElement;
@@ -43,13 +43,16 @@ export class TaskInputForm
         const title = (this._formElement.querySelector("#input-title") as HTMLInputElement).value;
         const dueDate = (this._formElement.querySelector("#input-due-date") as HTMLInputElement).value;
         const priority = (this._formElement.querySelector("#input-priority") as HTMLInputElement).value;
+        const description = (this._formElement.querySelector("#input-description") as HTMLTextAreaElement).value;
 
         if (priority === "high" || priority === "medium" || priority === "low")
         {
-            const newTask = new Task(title, new Date(dueDate), priority);
+            const newTask = new Task(title, new Date(dueDate), priority, description);
             ProjectState.getInstance().addTask(newTask);
             this.closeForm();
         }
+
+
     }
 
     private clearForm()
@@ -57,5 +60,6 @@ export class TaskInputForm
         (this._formElement.querySelector("#input-title") as HTMLInputElement).value = "";
         (this._formElement.querySelector("#input-due-date") as HTMLInputElement).value = "";
         (this._formElement.querySelector("#input-priority") as HTMLInputElement).value = "";
+        (this._formElement.querySelector("#input-description") as HTMLTextAreaElement).value = "";
     }
 }

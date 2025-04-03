@@ -1,11 +1,10 @@
 .task {
     border-bottom: 1px solid var(--main-clr);
-
     display: flex;
     align-items: center;
     gap: 20px;
     padding: 15px;
-    width: 600px;
+    width: 700px;
     /* justify-content: space-between; */
 }
 
@@ -37,4 +36,19 @@
 .task-priority-low {
     color: green;
     font-weight: bold;
+}
+
+.task-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-icons img {
+    width: 20px;
+    height: auto;
+}
+
+.task-icons img:hover {
+    cursor: pointer;
 }
