@@ -11,6 +11,7 @@
     justify-content: baseline;
     width: 350px;
     height: 300px;
+    position: relative;
 }
 
 .task-details-title {
@@ -42,4 +43,24 @@
 .task-details-priority {
     margin-top: 20px;
     padding: 0 0 0 15px;
+}
+
+#task-details-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 30px;
+    background: none;
+    border: 1px solid var(--main-clr);
+    border-radius: 5px;
+}
+
+#task-details-close:focus {
+    outline: none;
+}
+
+#task-details-close:hover {
+    background-color: rgba(71, 135, 255, 0.185);
+    cursor: pointer;
 }

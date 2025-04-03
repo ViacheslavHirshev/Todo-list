@@ -7,10 +7,8 @@ import { Task } from "./Entities/task"
 const taskInput = new TaskInputForm();
 const taskNavBar = new TaskNavBar();
 
-//TODO Detailed description
 //TODO Task editing
 //TODO Task deleting
-//TODO Projects for tasks
 //TODO Style all this shit
 
 const task1 = new Task("qwe", new Date(), "high");

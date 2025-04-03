@@ -29,38 +29,21 @@ export class TaskNavBar
 
     private displayAllTasks()
     {
-        this._projectState.renderTasks();
+        this._projectState.renderTasksByType(0);
     }
 
     private displayTodayTasks()
     {
-        const now = new Date();
-        const today = this._projectState.tasks.filter(task =>
-        {
-            return (task.dueDate.getFullYear() === now.getFullYear() &&
-                task.dueDate.getMonth() === now.getMonth() &&
-                task.dueDate.getDay() === now.getDay());
-        });
-
-        this._projectState.renderTasks(today);
+        this._projectState.renderTasksByType(1);
     }
 
     private displayCompletedTasks()
     {
-        const completed = this._projectState.tasks.filter(task => task._isCompleted);
-        this._projectState.renderTasks(completed);
+        this._projectState.renderTasksByType(2);
     }
 
     private displayMissedTasks()
     {
-        const today = new Date();
-        const missed = this._projectState.tasks.filter(task =>
-        {
-            return (task.dueDate.getFullYear() < today.getFullYear() ||
-                task.dueDate.getMonth() < today.getMonth() ||
-                task.dueDate.getDay() < today.getDay());
-        });
-
-        this._projectState.renderTasks(missed);
+        this._projectState.renderTasksByType(3);
     }
 }

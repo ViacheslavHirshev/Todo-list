@@ -44,6 +44,7 @@
             <!-- <button type="button" id="new-prj-btn">New Project</button> -->
         </div>
         
+        <h2 id="tasks-container-title"></h2>
         <div id="tasks"></div>
     </main>
 
@@ -102,6 +103,7 @@
 
             <label for="task-details-description" class="description-label">Task description:</label>
             <textarea id="task-details-description" class="task-details-description" disabled></textarea>
+            <button type="button" id="task-details-close" onclick="document.querySelector('.task-detals-dialog').close()">Close</button>
         </div>
     </dialog>
 </body>

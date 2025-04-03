@@ -1,5 +1,6 @@
 import { IRenderable } from "../interfaces/iRenderable";
 import { Task } from "../Entities/task";
+import { ProjectState } from "../projectState";
 
 export class TaskComponent implements IRenderable
 {
@@ -113,6 +114,6 @@ export class TaskComponent implements IRenderable
 
     private deleteTask()
     {
-
+        ProjectState.getInstance().removeTask(this._task.title);
     }
 }
