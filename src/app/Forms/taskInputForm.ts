@@ -51,8 +51,6 @@ export class TaskInputForm
             ProjectState.getInstance().addTask(newTask);
             this.closeForm();
         }
-
-
     }
 
     private clearForm()

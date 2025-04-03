@@ -95,6 +95,35 @@
         </form>
     </dialog>
 
+    <dialog id="task-edit-dialog">
+        <form id="task-edit-form">
+            <div class="form-field">
+                <label for="edit-title">Title</label>
+                <input type="text" id="edit-title" name="edit-title" required/>
+            </div>
+
+            <div class="form-field">
+                <label for="edit-due-date">Due date</label>
+                <input type="date" id="edit-due-date" name="edit-due-date" required/>
+            </div>
+
+            <div class="form-field">
+                <label for="edit-priority">Priority</label>
+                <input type="text" id="edit-priority" name="edit-priority" required/>
+            </div>
+
+            <div class="form-field">
+                <label for="edit-description">Description(optional)</label>
+                <textarea id="edit-description" name="edit-description" maxlength="65"></textarea>
+            </div>
+
+            <div class="form-btns">
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit" class="submit-btn">Create</button>
+            </div>
+        </form>
+    </dialog>
+
     <dialog class="task-detals-dialog">
         <div class="task-details-container">
             <h3 class="task-details-title"></h3>

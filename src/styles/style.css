@@ -3,6 +3,7 @@
 @import url("./taskInputForm.css");
 @import url("./navBar.css");
 @import url("./taskDetails.css");
+@import url("./taskEditForm.css");
 
 :root {
     --main-clr: #252f50;

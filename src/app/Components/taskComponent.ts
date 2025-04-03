@@ -1,6 +1,7 @@
 import { IRenderable } from "../interfaces/iRenderable";
 import { Task } from "../Entities/task";
 import { ProjectState } from "../projectState";
+import { TaskEditForm } from "../Forms/taskEditForm";
 
 export class TaskComponent implements IRenderable
 {
@@ -14,6 +15,8 @@ export class TaskComponent implements IRenderable
     private _detailsIcon: HTMLImageElement;
     private _editIcon: HTMLImageElement;
     private _deleteIcon: HTMLImageElement;
+
+    private _projectState = ProjectState.getInstance();
 
     constructor(sourceElement: HTMLTemplateElement, targetElement: HTMLElement, task: Task)
     {
@@ -57,7 +60,7 @@ export class TaskComponent implements IRenderable
         this._targetElement.append(this._currentElement);
     }
 
-    private configure()
+    private configure(): void
     {
         this._status.addEventListener("click", this.updateStatus.bind(this));
         this._detailsIcon.addEventListener("click", this.showTaskDetails.bind(this));
@@ -65,7 +68,7 @@ export class TaskComponent implements IRenderable
         this._deleteIcon.addEventListener("click", this.deleteTask.bind(this));
     }
 
-    private updateStatus()
+    private updateStatus(): void
     {
         const taskStatusLabel = this._currentElement.querySelector(".task-status-label") as HTMLLabelElement;
 
@@ -81,7 +84,24 @@ export class TaskComponent implements IRenderable
         }
     }
 
-    private showTaskDetails()
+    public updateTask(): void
+    {
+        const taskTitle = this._currentElement.querySelector(".task-title") as HTMLSpanElement;
+        taskTitle.innerText = this._task.title;
+
+        const taskDueDate = this._currentElement.querySelector(".task-due-date") as HTMLSpanElement;
+        taskDueDate.innerText = this._task.dueDate.toDateString();
+
+        const taskPriority = this._currentElement.querySelector(".task-priority") as HTMLSpanElement;
+        taskPriority.innerText = this._task.priority;
+
+        const taskDescription = this._currentElement.querySelector(".task-description") as HTMLTextAreaElement;
+
+        if (this._task.description)
+            taskDescription.value = this._task.description;
+    }
+
+    private showTaskDetails(): void
     {
         const detailsModalDialog = document.querySelector(".task-detals-dialog") as HTMLDialogElement;
 
@@ -107,13 +127,26 @@ export class TaskComponent implements IRenderable
         detailsModalDialog.showModal();
     }
 
-    private editTask()
+    private editTask(): void
     {
+        const currentTask = this._projectState.findTaskByName(this._task.title);
+
+        if (currentTask)
+        {
+            const editForm = new TaskEditForm(currentTask.id);
+            editForm.setFormFieldsFromTask(currentTask);
+            editForm.showForm();
+        }
+        else
+        {
+            return;
+        }
+
 
     }
 
-    private deleteTask()
+    private deleteTask(): void
     {
-        ProjectState.getInstance().removeTask(this._task.title);
+        this._projectState.removeTask(this._task.title);
     }
 }

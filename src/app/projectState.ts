@@ -1,5 +1,5 @@
 import { TaskComponent } from './Components/taskComponent';
-import { Task } from './Entities/task';
+import { PriorityType, Task } from './Entities/task';
 
 enum RenderType
 {
@@ -37,6 +37,16 @@ export class ProjectState
         this.renderTasks();
     }
 
+    public findTaskByName(title: string): Task | undefined
+    {
+        return this._tasks.find((task) => task.title === title);
+    }
+
+    public findTaskById(id: number): Task | undefined
+    {
+        return this._tasks.find((task) => task.id === id);
+    }
+
     public removeTask(title: string): void
     {
         const taskIndex = this._tasks.findIndex((task) => title === task.title);
@@ -49,11 +59,14 @@ export class ProjectState
         this.renderTasksByType(this._renderType);
     }
 
-    public renderTasksByType(renderType: RenderType): void
+    public renderTasksByType(renderType?: RenderType): void
     {
-        this._renderType = renderType;
+        if (renderType || renderType === 0)
+        {
+            this._renderType = renderType;
+        }
 
-        switch (renderType)
+        switch (this._renderType)
         {
             case RenderType.All:
                 this.renderAll();
