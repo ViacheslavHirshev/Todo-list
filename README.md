@@ -1,5 +1,5 @@
-#Todo-list for managing tasks
-##Technologies used:
+# Todo-list for managing tasks
+## Technologies used:
 HTML
 CSS
 Typescript
