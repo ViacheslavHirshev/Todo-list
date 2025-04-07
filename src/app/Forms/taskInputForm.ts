@@ -42,7 +42,7 @@ export class TaskInputForm
 
         const title = (this._formElement.querySelector("#input-title") as HTMLInputElement).value;
         const dueDate = (this._formElement.querySelector("#input-due-date") as HTMLInputElement).value;
-        const priority = (this._formElement.querySelector("#input-priority") as HTMLInputElement).value;
+        const priority = (this._formElement.querySelector("#input-priority") as HTMLSelectElement).value;
         const description = (this._formElement.querySelector("#input-description") as HTMLTextAreaElement).value;
 
         if (priority === "high" || priority === "medium" || priority === "low")
@@ -57,7 +57,7 @@ export class TaskInputForm
     {
         (this._formElement.querySelector("#input-title") as HTMLInputElement).value = "";
         (this._formElement.querySelector("#input-due-date") as HTMLInputElement).value = "";
-        (this._formElement.querySelector("#input-priority") as HTMLInputElement).value = "";
+        (this._formElement.querySelector("#input-priority") as HTMLSelectElement).value = "";
         (this._formElement.querySelector("#input-description") as HTMLTextAreaElement).value = "";
     }
 }

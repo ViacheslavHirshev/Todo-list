@@ -2,22 +2,16 @@ export type PriorityType = "high" | "medium" | "low";
 
 export class Task
 {
-    private _id: number;
-
-    private _title: string;
-    private _description?: string;
-    private _dueDate: Date;
-    private _priority: PriorityType;
-    public _isCompleted: boolean;
-
-    constructor(title: string, dueDate: Date, priority: PriorityType, description?: string)
+    constructor(
+        public _title: string,
+        public _dueDate: Date,
+        public _priority: PriorityType,
+        public _description?: string,
+        public _id: number = Math.random() % 1000,
+        public _isCompleted: boolean = false
+    )
     {
-        this._id = Math.random() % 1000;
-        this._title = title;
-        this._dueDate = dueDate;
-        this._description = description;
-        this._priority = priority;
-        this._isCompleted = false;
+
     }
 
     public get id()
@@ -66,5 +60,15 @@ export class Task
     public set priority(value: PriorityType)
     {
         this._priority = value;
+    }
+
+    public get isCompleted()
+    {
+        return this._isCompleted;
+    }
+
+    public set isCompleted(value: boolean)
+    {
+        this._isCompleted = value;
     }
 }

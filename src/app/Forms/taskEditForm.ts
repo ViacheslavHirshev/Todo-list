@@ -1,4 +1,3 @@
-import { b } from "../../../node_modules/vite/dist/node/moduleRunnerTransport.d-CXw_Ws6P";
 import { Task } from "../Entities/task";
 import { ProjectState } from "../projectState";
 
@@ -6,7 +5,6 @@ export class TaskEditForm
 {
     private _dialogElement: HTMLDialogElement;
     private _formElement: HTMLFormElement;
-    private _openFormBtn: HTMLButtonElement;
     private _closeFormBtn: HTMLButtonElement;
 
     private _editedTaskId: number;
@@ -17,7 +15,6 @@ export class TaskEditForm
 
         this._dialogElement = document.querySelector("#task-edit-dialog") as HTMLDialogElement;
         this._formElement = this._dialogElement.querySelector("#task-edit-form") as HTMLFormElement;
-        this._openFormBtn = document.querySelector("#new-task-btn") as HTMLButtonElement;
         this._closeFormBtn = this._dialogElement.querySelector(".cancel-btn") as HTMLButtonElement;
         this.configure();
     }
@@ -35,7 +32,6 @@ export class TaskEditForm
 
     private configure()
     {
-        this._openFormBtn.addEventListener("click", this.showForm.bind(this));
         this._closeFormBtn.addEventListener("click", this.closeForm.bind(this));
         this._formElement.addEventListener("submit", this.submitFormHandler.bind(this));
     }
@@ -46,7 +42,7 @@ export class TaskEditForm
 
         const title = (this._formElement.querySelector("#edit-title") as HTMLInputElement).value;
         const dueDate = (this._formElement.querySelector("#edit-due-date") as HTMLInputElement).value;
-        const priority = (this._formElement.querySelector("#edit-priority") as HTMLInputElement).value;
+        const priority = (this._formElement.querySelector("#edit-priority") as HTMLSelectElement).value;
         const description = (this._formElement.querySelector("#edit-description") as HTMLTextAreaElement).value;
 
         const editedTask = ProjectState.getInstance().findTaskById(this._editedTaskId);
@@ -70,7 +66,7 @@ export class TaskEditForm
     {
         (this._formElement.querySelector("#edit-title") as HTMLInputElement).value = "";
         (this._formElement.querySelector("#edit-due-date") as HTMLInputElement).value = "";
-        (this._formElement.querySelector("#edit-priority") as HTMLInputElement).value = "";
+        (this._formElement.querySelector("#edit-priority") as HTMLSelectElement).value = "";
         (this._formElement.querySelector("#edit-description") as HTMLTextAreaElement).value = "";
     }
 
@@ -78,7 +74,7 @@ export class TaskEditForm
     {
         (this._formElement.querySelector("#edit-title") as HTMLInputElement).value = task.title;
         (this._formElement.querySelector("#edit-due-date") as HTMLInputElement).value = task.dueDate.toISOString().split("T")[0];
-        (this._formElement.querySelector("#edit-priority") as HTMLInputElement).value = task.priority;
+        (this._formElement.querySelector("#edit-priority") as HTMLSelectElement).value = task.priority;
 
         if (task.description)
             (this._formElement.querySelector("#edit-description") as HTMLTextAreaElement).value = task.description;

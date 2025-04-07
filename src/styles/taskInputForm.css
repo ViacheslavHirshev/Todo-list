@@ -52,3 +52,16 @@
 #input-description:focus {
     outline: none;
 }
+
+.form-btns button {
+    border: 1px solid var(--main-clr);
+    border-radius: 15px;
+    padding: 5px;
+    min-width: 70px;
+    background: none;
+}
+
+.form-btns button:hover {
+    cursor: pointer;
+    background-color: var(--button-hover-clr);
+}

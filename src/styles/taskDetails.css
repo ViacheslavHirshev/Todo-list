@@ -61,6 +61,6 @@
 }
 
 #task-details-close:hover {
-    background-color: rgba(71, 135, 255, 0.185);
+    background-color: var(--button-hover-clr);
     cursor: pointer;
 }

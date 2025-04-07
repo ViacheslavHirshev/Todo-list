@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Document</title>
     <script type="module" src="./src/app/main.ts"></script>
 </head>
@@ -70,7 +70,7 @@
         <form id="task-input-form">
             <div class="form-field">
                 <label for="input-title">Title</label>
-                <input type="text" id="input-title" name="input-title" required/>
+                <input type="text" id="input-title" name="input-title" maxlength="25" required/>
             </div>
 
             <div class="form-field">
@@ -80,7 +80,11 @@
 
             <div class="form-field">
                 <label for="input-priority">Priority</label>
-                <input type="text" id="input-priority" name="input-priority" required/>
+                <select type="text" id="input-priority" name="input-priority" required>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
             </div>
 
             <div class="form-field">
@@ -99,7 +103,7 @@
         <form id="task-edit-form">
             <div class="form-field">
                 <label for="edit-title">Title</label>
-                <input type="text" id="edit-title" name="edit-title" required/>
+                <input type="text" id="edit-title" name="edit-title" maxlength="25" required/>
             </div>
 
             <div class="form-field">
@@ -109,7 +113,11 @@
 
             <div class="form-field">
                 <label for="edit-priority">Priority</label>
-                <input type="text" id="edit-priority" name="edit-priority" required/>
+                <select type="text" id="edit-priority" name="edit-priority" required>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
             </div>
 
             <div class="form-field">
@@ -119,7 +127,7 @@
 
             <div class="form-btns">
                 <button type="button" class="cancel-btn">Cancel</button>
-                <button type="submit" class="submit-btn">Create</button>
+                <button type="submit" class="submit-btn">Edit</button>
             </div>
         </form>
     </dialog>

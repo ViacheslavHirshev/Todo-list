@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Merienda:wght@300..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url("./task.css");
+@import url("./mainContent.css");
 @import url("./taskInputForm.css");
 @import url("./navBar.css");
 @import url("./taskDetails.css");
@@ -7,7 +7,8 @@
 
 :root {
     --main-clr: #252f50;
-    --second-clr: red;
+    --second-clr: rgba(17, 207, 255, 0.781);
+    --button-hover-clr: rgba(71, 135, 255, 0.185);
     --main-font: "Roboto"
 }
 
@@ -21,40 +22,23 @@
 }
 
 body {
+    width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template: 100% / 2fr 8fr;
+    grid-template: 100% / 1fr 4fr;
+}
+
+main {
+    position: relative;
 }
 
 aside {
     background-color: var(--main-clr);
     color: white;
-    display: grid;
-    grid-template: 10% 40% 50% / 100%;
-}
-
-.title {
-    align-self: center;
-    justify-self: center;
-    font-size: 1.5rem;
-}
-
-.nav-bar {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-}
-
-ul {
-    list-style: none;
-}
-
-ul li {
-    margin-left: 10px;
-}
-
-main {
-    position: relative;
+    gap: 50px;
+    min-width: 200px;
 }
 
 #control-btns {
@@ -63,4 +47,17 @@ main {
     right: 30px;
     display: flex;
     gap: 20px;
+}
+
+#new-task-btn {
+    width: 100px;
+    padding: 5px;
+    border-radius: 15px;
+    border: 1px solid var(--main-clr);
+    background: none;
+}
+
+#new-task-btn:hover {
+    cursor: pointer;
+    background-color: var(--button-hover-clr);
 }

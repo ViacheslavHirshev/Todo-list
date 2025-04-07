@@ -82,23 +82,8 @@ export class TaskComponent implements IRenderable
             this._task._isCompleted = false;
             taskStatusLabel.innerText = "Not completed";
         }
-    }
 
-    public updateTask(): void
-    {
-        const taskTitle = this._currentElement.querySelector(".task-title") as HTMLSpanElement;
-        taskTitle.innerText = this._task.title;
-
-        const taskDueDate = this._currentElement.querySelector(".task-due-date") as HTMLSpanElement;
-        taskDueDate.innerText = this._task.dueDate.toDateString();
-
-        const taskPriority = this._currentElement.querySelector(".task-priority") as HTMLSpanElement;
-        taskPriority.innerText = this._task.priority;
-
-        const taskDescription = this._currentElement.querySelector(".task-description") as HTMLTextAreaElement;
-
-        if (this._task.description)
-            taskDescription.value = this._task.description;
+        ProjectState.getInstance().saveToLocalStorage();
     }
 
     private showTaskDetails(): void
@@ -142,7 +127,7 @@ export class TaskComponent implements IRenderable
             return;
         }
 
-
+        ProjectState.getInstance().saveToLocalStorage();
     }
 
     private deleteTask(): void
